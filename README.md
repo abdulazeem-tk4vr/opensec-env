@@ -12,7 +12,7 @@
 
 A dual-control RL environment for incident response agent training. The defender investigates evidence from SQLite logs and executes containment actions while a live attacker advances a kill chain. Outcomes are scored by a deterministic oracle: attribution, executed containment, exposure-gated injection violations, and efficiency. The attacker is an LLM policy with limited autonomy inside a state machine; it is stochastic by default and can be replay-cached for low-variance evaluation.
 
-**Contribution.** Frontier LLMs (GPT-5.2, Sonnet 4.5, Gemini 3 Flash, DeepSeek v3.2) execute containment in 62.5-100% of episodes with 45-82.5% false positive rates. All models correctly identify the ground-truth threat when they act; the calibration gap is not in detection but in restraint. GPT-5.2 acts at step 4 with 82.5% FP rate (uncalibrated). Only Sonnet 4.5 shows partial calibration (62.5% containment, 45% FP, TTFC of 10.6). The environment makes this action-calibration gap measurable. See [Technical Report](docs/opensec-technical-report.pdf) for full results.
+**Contribution.** Six frontier LLMs (Opus 4.6, DeepSeek v3.2, Gemini 3 Flash, Sonnet 4.5, GPT-5.2, Kimi K2.5) execute containment in 52.5-100% of episodes with 45-97.5% false positive rates. All models correctly identify the ground-truth threat when they act; the calibration gap is not in detection but in restraint. GPT-5.2 acts at step 4 with 82.5% FP rate; Opus 4.6 has the highest EGAR (62.6%) but also the highest FP rate (97.5%). The environment makes this action-calibration gap measurable. See [Technical Report](docs/opensec-technical-report.pdf) for full results.
 
 ![OpenSec Architecture](assets/opensec-design.jpeg)
 
@@ -55,17 +55,21 @@ Defender tools:
 
 ## Key results
 
-Frontier model evaluation on 40 standard-tier episodes each:
+Six frontier models evaluated on 40 standard-tier episodes each:
 
-Interactive leaderboard (canonical): **https://jbarnes850.github.io/opensec/leaderboard/**  
+Interactive leaderboard: **https://jbarnes850.github.io/opensec/leaderboard/**
 Ranking is EGAR-first, with FP rate shown alongside to expose the calibration gap.
+
+![OpenSec Leaderboard](assets/opensec-leaderboard.png)
 
 | Model | Containment | FP Rate | EGAR | TTFC | Blast Radius | Threshold |
 |-------|------------:|--------:|-----:|-----:|-------------:|-----------|
-| GPT-5.2 | 100% | 82.5% | 37.5% | 4.1 | 0.43 | Uncalibrated |
-| Sonnet 4.5 | 62.5% | 45.0% | 39.2% | 10.6 | 0.44 | Partially Calibrated |
-| Gemini 3 Flash | 75.0% | 57.5% | 42.9% | 8.6 | 0.44 | Partially Calibrated |
+| Opus 4.6 | 100% | 97.5% | 62.6% | 7.8 | 0.79 | Uncalibrated |
 | DeepSeek v3.2 | 92.5% | 65.0% | 54.2% | 9.0 | 0.42 | Partially Calibrated |
+| Gemini 3 Flash | 75.0% | 57.5% | 42.9% | 8.6 | 0.44 | Partially Calibrated |
+| Sonnet 4.5 | 62.5% | 45.0% | 39.2% | 10.6 | 0.44 | Partially Calibrated |
+| GPT-5.2 | 100% | 82.5% | 37.5% | 4.1 | 0.43 | Uncalibrated |
+| Kimi K2.5 | 52.5% | 45.0% | 26.7% | 10.6 | 0.69 | Partially Calibrated |
 
 **Metrics:**
 - **Containment**: fraction of episodes with at least one containment action executed
@@ -75,7 +79,7 @@ Ranking is EGAR-first, with FP rate shown alongside to expose the calibration ga
 - **Blast Radius**: ratio of false positive to correct containment actions per episode
 - **Threshold**: defensive capability classification (provisional, calibrated against frontier model behavior)
 
-GPT-5.2 is the only model classified as uncalibrated, acting at step 4 with 82.5% false positive rate. Sonnet 4.5 shows the strongest calibration with TTFC of 10.6 (investigates 70% of the episode before acting). All models correctly identify the ground-truth threat when they act; the calibration gap is not in detection but in restraint. See [Technical Report](docs/opensec-technical-report.pdf) for methodology and full analysis.
+GPT-5.2 and Opus 4.6 are classified as uncalibrated -- both achieve 100% containment but at 82.5% and 97.5% FP rates respectively. Sonnet 4.5 and Kimi K2.5 show the strongest restraint with TTFC of 10.6 (investigating 70% of the episode before acting). All models correctly identify the ground-truth threat when they act; the calibration gap is not in detection but in restraint. See [Technical Report](docs/opensec-technical-report.pdf) for methodology and full analysis.
 
 ![Calibration Collapse](assets/calibration.png)
 
@@ -143,7 +147,7 @@ eval_ds = ds["eval"]    # 60 scenarios
 
 # Load pre-computed baseline traces
 baselines = load_dataset("Jarrodbarnes/opensec-seeds", "baselines", split="train")
-print(f"Loaded {len(baselines)} traces across 4 frontier models")
+print(f"Loaded {len(baselines)} traces across 6 frontier models")
 
 # Filter by model
 sonnet_traces = [t for t in baselines if t["model_id"] == "sonnet45"]

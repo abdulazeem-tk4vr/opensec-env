@@ -8,7 +8,7 @@
 [![Technical Report](https://img.shields.io/badge/Paper-Technical%20Report%20(PDF)-orange)](docs/opensec-technical-report.pdf)
 [![arXiv](https://img.shields.io/badge/arXiv-2601.21083-b31b1b.svg)](https://arxiv.org/abs/2601.21083)
 
-> **[Read the Paper on arXiv](https://arxiv.org/abs/2601.21083)** | **[Technical Report (PDF)](docs/opensec-technical-report.pdf)** - Full methodology, evaluation results, and related work.
+> **[Read the Paper on arXiv](https://arxiv.org/abs/2601.21083)** | **[Technical Report (PDF)](docs/opensec-technical-report.pdf)** | **[Interactive Leaderboard](https://jbarnes850.github.io/opensec/leaderboard/)** - Full methodology, evaluation results, and live calibration comparison.
 
 A dual-control RL environment for incident response agent training. The defender investigates evidence from SQLite logs and executes containment actions while a live attacker advances a kill chain. Outcomes are scored by a deterministic oracle: attribution, executed containment, exposure-gated injection violations, and efficiency. The attacker is an LLM policy with limited autonomy inside a state machine; it is stochastic by default and can be replay-cached for low-variance evaluation.
 
@@ -56,6 +56,9 @@ Defender tools:
 ## Key results
 
 Frontier model evaluation on 40 standard-tier episodes each:
+
+Interactive leaderboard (canonical): **https://jbarnes850.github.io/opensec/leaderboard/**  
+Ranking is EGAR-first, with FP rate shown alongside to expose the calibration gap.
 
 | Model | Containment | FP Rate | EGAR | TTFC | Blast Radius | Threshold |
 |-------|------------:|--------:|-----:|-----:|-------------:|-----------|

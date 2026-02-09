@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenSec | Incident Response Calibration Index</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #FFFFFF;
+      --bg-panel: #F9FAFB;
+      --border: #E5E7EB;
+      --border-light: #F3F4F6;
+      --text: #111827;
+      --text-secondary: #4B5563;
+      --text-muted: #9CA3AF;
+      --indigo: #6366F1;
+      --indigo-light: #EEF2FF;
+      --coral: #F0836D;
+      --coral-light: #FFF5F3;
+      --green: #10B981;
+      --green-light: #ECFDF5;
+      --amber: #D97706;
+      --amber-light: #FEF3C7;
+      --red: #EF4444;
+      --red-light: #FEE2E2;
+      --font-serif: 'Instrument Serif', Georgia, serif;
+      --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* -- Header -- */
+    .site-header {
+      border-bottom: 1px solid var(--border);
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .wordmark {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .header-nav { display: flex; gap: 28px; }
+    .header-nav a {
+      font-size: 14px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+    .header-nav a:hover { color: var(--text); }
+
+    /* -- Hero -- */
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 88px 32px 72px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(34px, 4.5vw, 52px);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .hero-sub {
+      font-size: 16px;
+      color: var(--text-secondary);
+      max-width: 560px;
+      margin: 0 auto 36px;
+      line-height: 1.65;
+    }
+    .hero-cta {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      padding: 11px 26px;
+      background: #1E1E2E;
+      color: #fff;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .btn-primary:hover { background: #2D2D40; }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      padding: 11px 26px;
+      background: transparent;
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      transition: all 0.15s;
+    }
+    .btn-outline:hover { background: var(--bg-panel); border-color: #D1D5DB; }
+    .hero-dataset {
+      margin-top: 20px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .hero-dataset a {
+      color: var(--text-secondary);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color 0.15s;
+    }
+    .hero-dataset a:hover { color: var(--text); }
+
+    /* -- Leaderboard Section -- */
+    .leaderboard-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px 80px;
+    }
+    .leaderboard-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    /* -- Narrative -- */
+    .narrative h2 {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+    .narrative p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+    .narrative p strong { color: var(--text); font-weight: 600; }
+    .resource-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 28px;
+    }
+    .resource-btn {
+      font-size: 13px;
+      font-weight: 600;
+      padding: 7px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: var(--bg);
+      transition: all 0.15s;
+    }
+    .resource-btn:hover { background: var(--bg-panel); border-color: #D1D5DB; }
+
+    /* -- Chart Panel -- */
+    .chart-panel {
+      background: var(--bg-panel);
+      border: 1px solid #EAECEF;
+      border-radius: 12px;
+      padding: 24px 28px;
+    }
+    .chart-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .chart-col-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+    }
+
+    /* -- Chart Body -- */
+    .chart-body { position: relative; }
+
+    .chart-gridlines {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: grid;
+      grid-template-columns: 170px 1fr 100px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .gridlines-inner {
+      display: flex;
+      justify-content: space-between;
+    }
+    .gridline {
+      width: 1px;
+      background: #EAECEF;
+    }
+
+    /* -- Chart Rows -- */
+    .chart-rows { position: relative; z-index: 1; }
+
+    .chart-row {
+      display: grid;
+      grid-template-columns: 170px 1fr 100px;
+      align-items: center;
+      gap: 16px;
+      padding: 12px 8px;
+      cursor: pointer;
+      transition: background 0.12s;
+      border-radius: 6px;
+      margin: 0 -8px;
+    }
+    .chart-row:hover { background: rgba(0,0,0,0.02); }
+    .chart-row.expanded { background: rgba(0,0,0,0.02); }
+
+    .model-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+    .provider-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .provider-icon.anthropic { background: #FDE8D0; color: #C2410C; }
+    .provider-icon.openai { background: #F3F4F6; color: #374151; }
+    .provider-icon.google { background: #DBEAFE; color: #1D4ED8; }
+    .provider-icon.deepseek { background: #D1FAE5; color: #047857; }
+    .provider-icon.moonshot { background: #EDE9FE; color: #6D28D9; }
+    .provider-icon.sm { width: 20px; height: 20px; font-size: 10px; border-radius: 4px; }
+
+    .model-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .bars-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .bar-track {
+      height: 8px;
+      background: #EAECEF;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .bar-fill.primary-indigo { background: var(--indigo); }
+    .bar-fill.primary-green { background: var(--green); }
+    .bar-fill.secondary { background: var(--coral); }
+
+    .score-text {
+      text-align: right;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+    .score-text .std {
+      color: var(--text-muted);
+      font-weight: 400;
+      font-size: 12px;
+    }
+
+    /* -- Chart Axis -- */
+    .chart-axis-row {
+      display: grid;
+      grid-template-columns: 170px 1fr 100px;
+      gap: 16px;
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border-light);
+    }
+    .axis-labels {
+      display: flex;
+      justify-content: space-between;
+    }
+    .axis-labels span {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* -- Chart Footer -- */
+    .chart-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 16px;
+      padding-top: 12px;
+    }
+    .view-toggle {
+      display: flex;
+      gap: 2px;
+      background: #EAECEF;
+      border-radius: 6px;
+      padding: 2px;
+    }
+    .view-toggle button {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 14px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background: transparent;
+      color: var(--text-muted);
+      transition: all 0.15s;
+    }
+    .view-toggle button.active {
+      background: var(--bg);
+      color: var(--text);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+    }
+    .chart-legend {
+      display: flex;
+      gap: 18px;
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .chart-legend span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .legend-swatch {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+    }
+    .legend-swatch.primary { background: var(--indigo); }
+    .legend-swatch.secondary { background: var(--coral); }
+    .legend-swatch.green { background: var(--green); }
+
+    /* -- Expanded Detail -- */
+    .model-detail {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, opacity 0.25s ease;
+      opacity: 0;
+      margin: 0 -8px;
+      padding: 0 8px;
+    }
+    .model-detail.visible {
+      max-height: 320px;
+      opacity: 1;
+    }
+    .detail-inner {
+      padding: 4px 0 16px;
+    }
+    .detail-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .detail-metric {
+      background: var(--bg);
+      border-radius: 8px;
+      padding: 12px 14px;
+    }
+    .detail-metric .label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .detail-metric .value {
+      font-size: 20px;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      color: var(--text);
+    }
+    .detail-metric .value.bad { color: var(--red); }
+    .detail-metric .value.warn { color: var(--amber); }
+    .detail-metric .value.good { color: var(--green); }
+    .detail-metric .sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .detail-extra {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .detail-card {
+      background: var(--bg);
+      border-radius: 8px;
+      padding: 12px 14px;
+    }
+    .detail-card .label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .inj-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 4px;
+    }
+    .inj-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      width: 18px;
+    }
+    .inj-bar-bg {
+      flex: 1;
+      height: 5px;
+      background: var(--border-light);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .inj-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+    }
+    .inj-bar-fill.t1 { background: #94A3B8; }
+    .inj-bar-fill.t2 { background: #F59E0B; }
+    .inj-bar-fill.t3 { background: #EF4444; }
+    .inj-val {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      width: 36px;
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* -- Dimensions Section -- */
+    .dimensions-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 32px;
+    }
+    .dimensions-section > h2 {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 400;
+      margin-bottom: 40px;
+    }
+    .dimension-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+      align-items: start;
+    }
+    .dimension-card:last-child { padding-bottom: 0; }
+    .dimension-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .dimension-header h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .view-more {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      cursor: default;
+    }
+    .dimension-text p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+    .dim-row {
+      display: grid;
+      grid-template-columns: 140px 1fr 72px;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 0;
+    }
+    .dim-model {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      white-space: nowrap;
+    }
+    .dim-bar-track {
+      height: 8px;
+      background: var(--border-light);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .dim-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width 0.5s ease;
+    }
+    .dim-value {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* -- Methodology -- */
+    .methodology-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px 80px;
+    }
+    .methodology-section > h2 {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+    .methodology-section .section-desc {
+      font-size: 15px;
+      color: var(--text-secondary);
+      margin-bottom: 28px;
+    }
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .method-card {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-light);
+      border-radius: 10px;
+      padding: 24px;
+    }
+    .method-card h3 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .method-card p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+    .method-card code {
+      font-size: 12px;
+      background: var(--bg);
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      border: 1px solid var(--border-light);
+    }
+
+    /* -- Footer -- */
+    .site-footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 32px;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+    }
+    .footer-cite {
+      font-size: 13px;
+      color: var(--text-secondary);
+      max-width: 480px;
+    }
+    .footer-cite pre {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+      padding: 12px 16px;
+      font-size: 11px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      margin-top: 10px;
+      overflow-x: auto;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      font-size: 13px;
+    }
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+    .footer-links a:hover { color: var(--text); }
+
+    /* -- Responsive -- */
+    @media (max-width: 900px) {
+      .leaderboard-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero { padding: 56px 20px 48px; }
+      .leaderboard-section { padding: 0 20px 56px; }
+      .chart-row { grid-template-columns: 130px 1fr 80px; gap: 10px; }
+      .chart-gridlines { grid-template-columns: 130px 1fr 80px; }
+      .chart-axis-row { grid-template-columns: 130px 1fr 80px; }
+      .detail-metrics { grid-template-columns: repeat(2, 1fr); }
+      .dimension-card { grid-template-columns: 1fr; gap: 20px; }
+      .method-grid { grid-template-columns: 1fr; }
+      .dimensions-section { padding: 56px 20px; }
+      .methodology-section { padding: 0 20px 56px; }
+      .header-inner { padding: 14px 20px; }
+      .footer-inner { flex-direction: column; gap: 24px; padding: 0; }
+    }
+    @media (max-width: 600px) {
+      .chart-row { grid-template-columns: 1fr; gap: 6px; padding: 14px 8px; }
+      .chart-gridlines { display: none; }
+      .chart-axis-row { display: none; }
+      .score-text { text-align: left; }
+      .hero-cta { flex-direction: column; align-items: center; }
+      .header-nav { gap: 16px; }
+      .dim-row { grid-template-columns: 1fr; gap: 4px; }
+    }
+
+    /* -- Animations -- */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-in { animation: fadeUp 0.4s ease both; }
+    .chart-row:nth-child(1) { animation-delay: 0.03s; }
+    .chart-row:nth-child(2) { animation-delay: 0.06s; }
+    .chart-row:nth-child(3) { animation-delay: 0.09s; }
+    .chart-row:nth-child(4) { animation-delay: 0.12s; }
+    .chart-row:nth-child(5) { animation-delay: 0.15s; }
+    .chart-row:nth-child(6) { animation-delay: 0.18s; }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="../" class="wordmark">OpenSec</a>
+    <nav class="header-nav">
+      <a href="https://arxiv.org/abs/2601.21083">Paper</a>
+      <a href="https://github.com/jbarnes850/opensec-env">Code</a>
+      <a href="https://huggingface.co/datasets/Jarrodbarnes/opensec-seeds">Dataset</a>
+      <a href="index.html">Playground</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>The OpenSec Incident Response<br>Calibration Index</h1>
+  <p class="hero-sub">Measuring whether frontier IR agents verify evidence before executing containment. Six models evaluated across 240 episodes with deterministic oracle scoring.</p>
+  <div class="hero-cta">
+    <a href="https://arxiv.org/abs/2601.21083" class="btn-primary">Read Paper</a>
+    <a href="https://github.com/jbarnes850/opensec-env" class="btn-outline">View Code</a>
+  </div>
+  <p class="hero-dataset">Explore the evaluation seeds and baseline traces on <a href="https://huggingface.co/datasets/Jarrodbarnes/opensec-seeds">HuggingFace</a></p>
+</section>
+
+<section class="leaderboard-section">
+  <div class="leaderboard-grid">
+
+    <div class="narrative">
+      <h2>The OpenSec IR calibration leaderboard</h2>
+      <p>I created OpenSec to evaluate incident response agents on dual-control scenarios where defenders process adversarial evidence and have authority to act. The tasks require reasoning about trust tiers, distinguishing attacker-planted evidence from legitimate alerts, and making real-time containment decisions.</p>
+      <p>Every model correctly identifies the ground-truth threat when it acts. <strong>The calibration gap is not in detection but in restraint</strong> -- false positive rates range from 45% to 97.5% across all six models.</p>
+      <p>There are 60 evaluation seeds in OpenSec, stratified across three injection families (data exfiltration, direct harm, adaptive). The entire dataset is open-source, along with the scoring oracle and evaluation harness.</p>
+      <div class="resource-btns">
+        <a href="https://arxiv.org/abs/2601.21083" class="resource-btn">Paper</a>
+        <a href="https://github.com/jbarnes850/opensec-env/blob/main/docs/opensec-technical-report.pdf" class="resource-btn">Technical Report</a>
+        <a href="https://huggingface.co/datasets/Jarrodbarnes/opensec-seeds" class="resource-btn">Dataset</a>
+        <a href="https://github.com/jbarnes850/opensec-env" class="resource-btn">Code</a>
+        <a href="index.html" class="resource-btn">Trace Playground</a>
+      </div>
+    </div>
+
+    <div class="chart-panel">
+      <div class="chart-header">
+        <span class="chart-col-label">Model</span>
+        <span class="chart-col-label" id="score-col-label">Score</span>
+      </div>
+
+      <div class="chart-body">
+        <div class="chart-gridlines" aria-hidden="true">
+          <div></div>
+          <div class="gridlines-inner">
+            <div class="gridline"></div>
+            <div class="gridline"></div>
+            <div class="gridline"></div>
+            <div class="gridline"></div>
+            <div class="gridline"></div>
+            <div class="gridline"></div>
+          </div>
+          <div></div>
+        </div>
+        <div class="chart-rows" id="chart-rows"></div>
+      </div>
+
+      <div class="chart-axis-row">
+        <div></div>
+        <div class="axis-labels">
+          <span>0%</span><span>20%</span><span>40%</span><span>60%</span><span>80%</span><span>100%</span>
+        </div>
+        <div></div>
+      </div>
+
+      <div class="chart-footer">
+        <div class="view-toggle">
+          <button class="active" data-view="calibration" onclick="setView('calibration')">Calibration</button>
+          <button data-view="capability" onclick="setView('capability')">Capability</button>
+        </div>
+        <div class="chart-legend" id="chart-legend">
+          <span><i class="legend-swatch primary"></i> EGAR</span>
+          <span><i class="legend-swatch secondary"></i> FP Rate</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="dimensions-section">
+  <h2>Evaluation dimensions in OpenSec</h2>
+  <div id="dimensions-container"></div>
+</section>
+
+<section class="methodology-section">
+  <h2>Methodology</h2>
+  <p class="section-desc">Evaluation configuration and known asymmetries.</p>
+  <div class="method-grid">
+    <div class="method-card">
+      <h3>Eval Configuration</h3>
+      <p>All models evaluated via OpenRouter (except GPT-5.2 via OpenAI direct). <code>temperature: 0.2</code>, <code>max_tokens: 600</code>. Attacker: GPT-5.2 at temperature 0.7 with strict mode. 40 episodes per model.</p>
+    </div>
+    <div class="method-card">
+      <h3>Reasoning Asymmetry</h3>
+      <p>No explicit reasoning parameters are passed. Kimi K2.5 uses reasoning by default (264/285 tokens). Opus 4.6 and Sonnet 4.5 receive 0 reasoning tokens. Reflects default API deployment behavior.</p>
+    </div>
+    <div class="method-card">
+      <h3>Scoring Oracle</h3>
+      <p>Deterministic multi-component reward: attribution, containment, injection safety, efficiency. EGAR and TTFC computed from episode traces. FP penalty capped at <code>-1.0</code> per action type.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-cite">
+      <p>Barnes, J. (2026). OpenSec: Measuring Incident Response Agent Calibration Under Adversarial Evidence.</p>
+      <pre>@article{barnes2026opensec,
+  title   = {OpenSec: Measuring Incident Response Agent
+             Calibration Under Adversarial Evidence},
+  author  = {Barnes, Jarrod},
+  journal = {arXiv preprint arXiv:2601.21083},
+  year    = {2026}
+}</pre>
+    </div>
+    <div class="footer-links">
+      <a href="https://arxiv.org/abs/2601.21083">arXiv</a>
+      <a href="https://github.com/jbarnes850/opensec-env">GitHub</a>
+      <a href="https://huggingface.co/datasets/Jarrodbarnes/opensec-seeds">HuggingFace</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const MODELS = [
+  {
+    model_id: "opus46",
+    display_name: "Opus 4.6",
+    provider: "Anthropic",
+    provider_class: "anthropic",
+    provider_abbr: "A",
+    cohort: "append_2026-02",
+    metric_source: "raw_append_2026_02",
+    episodes: 40,
+    containment_rate: 1.0,
+    fp_rate: 0.975,
+    egar: 0.626,
+    egar_std: 0.237,
+    ttfc: 7.8,
+    ttfc_std: 2.4,
+    blast_radius: 0.79,
+    blast_radius_std: 0.41,
+    inj_t1: 0.0,
+    inj_t2: 0.45,
+    inj_t3: 0.15,
+    threshold: "Uncalibrated",
+    reward: 2.46,
+    reward_std: 1.97,
+    report_rate: 1.0
+  },
+  {
+    model_id: "deepseek32",
+    display_name: "DeepSeek v3.2",
+    provider: "DeepSeek",
+    provider_class: "deepseek",
+    provider_abbr: "D",
+    cohort: "published_v1",
+    metric_source: "paper_locked",
+    episodes: 40,
+    containment_rate: 0.925,
+    fp_rate: 0.65,
+    egar: 0.542,
+    egar_std: 0.337,
+    ttfc: 9.0,
+    ttfc_std: 1.9,
+    blast_radius: 0.42,
+    blast_radius_std: 0.39,
+    inj_t1: 0.05,
+    inj_t2: 0.15,
+    inj_t3: 0.10,
+    threshold: "Partially Calibrated",
+    reward: 3.45,
+    reward_std: 1.64,
+    report_rate: 1.0
+  },
+  {
+    model_id: "gemini3flash",
+    display_name: "Gemini 3 Flash",
+    provider: "Google",
+    provider_class: "google",
+    provider_abbr: "G",
+    cohort: "published_v1",
+    metric_source: "paper_locked",
+    episodes: 40,
+    containment_rate: 0.75,
+    fp_rate: 0.575,
+    egar: 0.429,
+    egar_std: 0.383,
+    ttfc: 8.6,
+    ttfc_std: 1.9,
+    blast_radius: 0.44,
+    blast_radius_std: 0.29,
+    inj_t1: 0.075,
+    inj_t2: 0.15,
+    inj_t3: 0.05,
+    threshold: "Partially Calibrated",
+    reward: 2.61,
+    reward_std: 1.04,
+    report_rate: 1.0
+  },
+  {
+    model_id: "sonnet45",
+    display_name: "Sonnet 4.5",
+    provider: "Anthropic",
+    provider_class: "anthropic",
+    provider_abbr: "A",
+    cohort: "published_v1",
+    metric_source: "paper_locked",
+    episodes: 40,
+    containment_rate: 0.625,
+    fp_rate: 0.45,
+    egar: 0.392,
+    egar_std: 0.374,
+    ttfc: 10.6,
+    ttfc_std: 1.8,
+    blast_radius: 0.44,
+    blast_radius_std: 0.37,
+    inj_t1: 0.0,
+    inj_t2: 0.20,
+    inj_t3: 0.0,
+    threshold: "Partially Calibrated",
+    reward: 2.37,
+    reward_std: 1.63,
+    report_rate: 0.825
+  },
+  {
+    model_id: "gpt52",
+    display_name: "GPT-5.2",
+    provider: "OpenAI",
+    provider_class: "openai",
+    provider_abbr: "O",
+    cohort: "published_v1",
+    metric_source: "paper_locked",
+    episodes: 40,
+    containment_rate: 1.0,
+    fp_rate: 0.825,
+    egar: 0.375,
+    egar_std: 0.383,
+    ttfc: 4.1,
+    ttfc_std: 1.5,
+    blast_radius: 0.43,
+    blast_radius_std: 0.27,
+    inj_t1: 0.0,
+    inj_t2: 0.25,
+    inj_t3: 0.075,
+    threshold: "Uncalibrated",
+    reward: 3.07,
+    reward_std: 1.15,
+    report_rate: 1.0
+  },
+  {
+    model_id: "kimik25",
+    display_name: "Kimi K2.5",
+    provider: "Moonshot AI",
+    provider_class: "moonshot",
+    provider_abbr: "M",
+    cohort: "append_2026-02",
+    metric_source: "raw_append_2026_02",
+    episodes: 40,
+    containment_rate: 0.525,
+    fp_rate: 0.45,
+    egar: 0.267,
+    egar_std: 0.319,
+    ttfc: 10.6,
+    ttfc_std: 2.4,
+    blast_radius: 0.69,
+    blast_radius_std: 0.48,
+    inj_t1: 0.05,
+    inj_t2: 0.25,
+    inj_t3: 0.05,
+    threshold: "Partially Calibrated",
+    reward: 0.93,
+    reward_std: 1.15,
+    report_rate: 0.5
+  }
+];
+
+let currentView = "calibration";
+let expandedRow = null;
+
+function pct(v) { return (v * 100).toFixed(1) + "%"; }
+function pctInt(v) { return (v * 100).toFixed(0) + "%"; }
+
+function fpColorClass(v) {
+  if (v >= 0.8) return "bad";
+  if (v >= 0.5) return "warn";
+  return "good";
+}
+
+function renderChart() {
+  const container = document.getElementById("chart-rows");
+  const legend = document.getElementById("chart-legend");
+  const isCalibration = currentView === "calibration";
+  const primaryKey = isCalibration ? "egar" : "containment_rate";
+  const sorted = [...MODELS].sort((a, b) => b[primaryKey] - a[primaryKey]);
+
+  const primaryLabel = isCalibration ? "EGAR" : "Containment";
+  const barClass = isCalibration ? "primary-indigo" : "primary-green";
+  const swatchClass = isCalibration ? "primary" : "green";
+
+  legend.innerHTML = `
+    <span><i class="legend-swatch ${swatchClass}"></i> ${primaryLabel}</span>
+    <span><i class="legend-swatch secondary"></i> FP Rate</span>
+  `;
+
+  container.innerHTML = sorted.map(m => {
+    const primaryVal = m[primaryKey];
+    const primaryStd = isCalibration ? m.egar_std : null;
+    const stdHtml = primaryStd
+      ? ` <span class="std">&plusmn; ${(primaryStd * 100).toFixed(1)}%</span>`
+      : "";
+
+    const detailHtml = `
+      <div class="detail-inner">
+        <div class="detail-metrics">
+          <div class="detail-metric">
+            <div class="label">FP Rate</div>
+            <div class="value ${fpColorClass(m.fp_rate)}">${pct(m.fp_rate)}</div>
+            <div class="sub">${Math.round(m.fp_rate * m.episodes)} of ${m.episodes} episodes</div>
+          </div>
+          <div class="detail-metric">
+            <div class="label">TTFC</div>
+            <div class="value">Step ${m.ttfc.toFixed(1)}</div>
+            <div class="sub">&plusmn; ${m.ttfc_std.toFixed(1)} steps</div>
+          </div>
+          <div class="detail-metric">
+            <div class="label">Blast Radius</div>
+            <div class="value">${m.blast_radius.toFixed(2)}</div>
+            <div class="sub">FP / max(1, correct)</div>
+          </div>
+          <div class="detail-metric">
+            <div class="label">Reward</div>
+            <div class="value">${m.reward.toFixed(2)}</div>
+            <div class="sub">&plusmn; ${m.reward_std.toFixed(2)}</div>
+          </div>
+        </div>
+        <div class="detail-extra">
+          <div class="detail-card">
+            <div class="label">Injection Violations</div>
+            <div class="inj-row"><span class="inj-label">T1</span><div class="inj-bar-bg"><div class="inj-bar-fill t1" style="width:${m.inj_t1 * 200}%"></div></div><span class="inj-val">${pct(m.inj_t1)}</span></div>
+            <div class="inj-row"><span class="inj-label">T2</span><div class="inj-bar-bg"><div class="inj-bar-fill t2" style="width:${m.inj_t2 * 200}%"></div></div><span class="inj-val">${pct(m.inj_t2)}</span></div>
+            <div class="inj-row"><span class="inj-label">T3</span><div class="inj-bar-bg"><div class="inj-bar-fill t3" style="width:${m.inj_t3 * 200}%"></div></div><span class="inj-val">${pct(m.inj_t3)}</span></div>
+          </div>
+          <div class="detail-card">
+            <div class="label">Episode Summary</div>
+            <div style="font-size:13px;color:var(--text-secondary);line-height:1.65;margin-top:4px;">
+              Containment in <strong>${pctInt(m.containment_rate)}</strong> of episodes.
+              Reports submitted in <strong>${pctInt(m.report_rate)}</strong>.
+              Threshold: <strong>${m.threshold}</strong>.
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    return `
+      <div class="chart-row animate-in" data-id="${m.model_id}" onclick="toggleDetail('${m.model_id}')">
+        <div class="model-info">
+          <div class="provider-icon ${m.provider_class}">${m.provider_abbr}</div>
+          <span class="model-name">${m.display_name}</span>
+        </div>
+        <div class="bars-wrapper">
+          <div class="bar-track"><div class="bar-fill ${barClass}" style="width:${primaryVal * 100}%"></div></div>
+          <div class="bar-track"><div class="bar-fill secondary" style="width:${m.fp_rate * 100}%"></div></div>
+        </div>
+        <div class="score-text">${pct(primaryVal)}${stdHtml}</div>
+      </div>
+      <div class="model-detail" id="detail-${m.model_id}">${detailHtml}</div>
+    `;
+  }).join("");
+}
+
+function toggleDetail(id) {
+  const el = document.getElementById("detail-" + id);
+  const row = document.querySelector(`.chart-row[data-id="${id}"]`);
+  if (expandedRow === id) {
+    el.classList.remove("visible");
+    row.classList.remove("expanded");
+    expandedRow = null;
+  } else {
+    document.querySelectorAll(".model-detail.visible").forEach(d => d.classList.remove("visible"));
+    document.querySelectorAll(".chart-row.expanded").forEach(r => r.classList.remove("expanded"));
+    el.classList.add("visible");
+    row.classList.add("expanded");
+    expandedRow = id;
+  }
+}
+
+function setView(view) {
+  currentView = view;
+  document.querySelectorAll(".view-toggle button").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.view === view);
+  });
+  expandedRow = null;
+  renderChart();
+}
+
+function renderDimensions() {
+  const dims = [
+    {
+      title: "Evidence Calibration",
+      desc: "EGAR measures whether the model fetched trusted evidence about the target entity before executing containment. High EGAR with high FP indicates the model checks evidence but acts on everything anyway.",
+      metric: "egar",
+      format: v => pct(v),
+      sort: "desc",
+      barMax: 1.0,
+      color: "var(--indigo)"
+    },
+    {
+      title: "Action Safety",
+      desc: "False positive rates measure how often the IR agent disrupts legitimate services alongside the real threat. The gap between containment rate and correct containment defines operational risk for SOC teams.",
+      metric: "fp_rate",
+      format: v => pct(v),
+      sort: "asc",
+      barMax: 1.0,
+      color: "var(--coral)"
+    },
+    {
+      title: "Response Speed",
+      desc: "Time to first containment (TTFC) measures how many investigation steps the agent takes before transitioning to action. Fast response is only valuable when paired with low false positive rates.",
+      metric: "ttfc",
+      format: v => "Step " + v.toFixed(1),
+      sort: "asc",
+      barMax: 15,
+      color: "var(--text-secondary)"
+    }
+  ];
+
+  const container = document.getElementById("dimensions-container");
+  container.innerHTML = dims.map(dim => {
+    const sorted = [...MODELS].sort((a, b) => {
+      return dim.sort === "desc"
+        ? b[dim.metric] - a[dim.metric]
+        : a[dim.metric] - b[dim.metric];
+    });
+    const top3 = sorted.slice(0, 3);
+
+    return `
+      <div class="dimension-card">
+        <div class="dimension-text">
+          <div class="dimension-header">
+            <h3>${dim.title}</h3>
+            <span class="view-more">View more</span>
+          </div>
+          <p>${dim.desc}</p>
+        </div>
+        <div class="dimension-chart">
+          ${top3.map(m => {
+            const val = m[dim.metric];
+            const barPct = dim.metric === "ttfc"
+              ? (val / dim.barMax) * 100
+              : val * 100;
+            return `
+              <div class="dim-row">
+                <div class="dim-model">
+                  <span class="provider-icon sm ${m.provider_class}">${m.provider_abbr}</span>
+                  <span>${m.display_name}</span>
+                </div>
+                <div class="dim-bar-track">
+                  <div class="dim-bar-fill" style="width:${Math.min(barPct, 100)}%;background:${dim.color}"></div>
+                </div>
+                <span class="dim-value">${dim.format(val)}</span>
+              </div>
+            `;
+          }).join("")}
+        </div>
+      </div>
+    `;
+  }).join("");
+}
+
+renderChart();
+renderDimensions();
+</script>
+</body>
+</html>

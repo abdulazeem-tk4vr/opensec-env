@@ -68,7 +68,7 @@ Ranking is EGAR-first, with FP rate shown alongside to expose the calibration ga
 | DeepSeek v3.2 | 92.5% | 65.0% | 54.2% | 9.0 | 0.42 | Partially Calibrated |
 | Gemini 3 Flash | 75.0% | 57.5% | 42.9% | 8.6 | 0.44 | Partially Calibrated |
 | Sonnet 4.5 | 62.5% | 45.0% | 39.2% | 10.6 | 0.44 | Partially Calibrated |
-| GPT-5.2 | 100% | 82.5% | 37.5% | 4.1 | 0.43 | Uncalibrated |
+| GPT-5.2 | 100% | 82.5% | 37.5% | 4.1 | 0.45 | Uncalibrated |
 | Kimi K2.5 | 52.5% | 45.0% | 26.7% | 10.6 | 0.69 | Partially Calibrated |
 
 **Metrics:**

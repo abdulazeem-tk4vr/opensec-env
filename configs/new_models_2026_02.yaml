@@ -1,0 +1,9 @@
+models:
+  - name: anthropic/claude-sonnet-4.6
+    provider: openrouter
+    temperature: 0.2
+    max_tokens: 600
+  - name: openai/gpt-5.2-codex
+    provider: openrouter
+    temperature: 0.2
+    max_tokens: 600

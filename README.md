@@ -6,7 +6,7 @@
 
 > **[Paper](https://arxiv.org/abs/2601.21083)** | **[Interactive Leaderboard](https://jbarnes850.github.io/opensec/leaderboard/)** | **[Blog Post](https://jbarnes850.github.io/2026/01/23/frontier-security-agents-lack-restraint/)**
 
-Six frontier LLMs correctly identify security threats but act on the wrong targets in 45-97.5% of episodes. Detection is not the problem. The models act before they verify.
+Eight frontier LLMs correctly identify security threats but act on the wrong targets in 45-97.5% of episodes. Detection is not the problem. The models act before they verify.
 
 OpenSec is a dual-control RL environment that makes this action-calibration gap measurable. The defender investigates evidence from SQLite logs and executes containment actions while a live attacker advances a kill chain. Outcomes are scored by a deterministic oracle: attribution, executed containment, exposure-gated injection violations, and efficiency.
 
@@ -41,15 +41,17 @@ Defender tools:
 
 ## Results
 
-Six frontier models evaluated on 40 standard-tier episodes each. Ranked by EGAR, with FP rate alongside to expose the calibration gap.
+Eight frontier models evaluated on 40 standard-tier episodes each. Ranked by EGAR, with FP rate alongside to expose the calibration gap.
 
 | Model | Containment | FP Rate | EGAR | TTFC | Blast Radius | Calibration |
 |-------|------------:|--------:|-----:|-----:|-------------:|-------------|
+| Sonnet 4.6 | 100% | 92.5% | 72.2% | 9.8 | 0.39 | Uncalibrated |
 | Opus 4.6 | 100% | 97.5% | 62.6% | 7.8 | 0.79 | Uncalibrated |
 | DeepSeek v3.2 | 92.5% | 65.0% | 54.2% | 9.0 | 0.42 | Partially Calibrated |
 | Gemini 3 Flash | 75.0% | 57.5% | 42.9% | 8.6 | 0.44 | Partially Calibrated |
 | Sonnet 4.5 | 62.5% | 45.0% | 39.2% | 10.6 | 0.44 | Partially Calibrated |
 | GPT-5.2 | 100% | 82.5% | 37.5% | 4.1 | 0.45 | Uncalibrated |
+| GPT-5.2 Codex | 97.5% | 60.0% | 35.2% | 4.3 | 0.21 | Uncalibrated |
 | Kimi K2.5 | 52.5% | 45.0% | 26.7% | 10.6 | 0.69 | Partially Calibrated |
 
 **Metrics:**
@@ -62,7 +64,7 @@ Six frontier models evaluated on 40 standard-tier episodes each. Ranked by EGAR,
 
 Interactive leaderboard: **https://jbarnes850.github.io/opensec/leaderboard/**
 
-GPT-5.2 and Opus 4.6 both achieve 100% containment but at 82.5% and 97.5% FP rates respectively. Sonnet 4.5 and Kimi K2.5 show the strongest restraint with TTFC of 10.6, investigating 70% of the episode before acting.
+Sonnet 4.6, GPT-5.2, and Opus 4.6 achieve 100% containment but at 92.5%, 82.5%, and 97.5% FP rates respectively. Sonnet 4.6 leads EGAR at 72.2% but remains uncalibrated due to FP rate. GPT-5.2 Codex cuts blast radius in half (0.45 → 0.21) versus GPT-5.2 while maintaining fast response (TTFC 4.3).
 
 ![Calibration Collapse](assets/calibration.png)
 
@@ -93,7 +95,7 @@ train_ds = ds["train"]  # 160 scenarios
 eval_ds = ds["eval"]    # 60 scenarios
 
 baselines = load_dataset("Jarrodbarnes/opensec-seeds", "baselines", split="train")
-print(f"Loaded {len(baselines)} traces across 6 frontier models")
+print(f"Loaded {len(baselines)} traces across 8 frontier models")
 
 sonnet_traces = [t for t in baselines if t["model_id"] == "sonnet45"]
 for trace in sonnet_traces[:3]:

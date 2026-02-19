@@ -559,8 +559,8 @@ def load_env_file(path: str = ".env") -> None:
 def get_openai_config() -> tuple[Optional[str], str, Optional[float]]:
     load_env_file()
     api_key = os.getenv("OPENAI_API_KEY")
-    model = os.getenv("OPENAI_ATTACKER_MODEL", "gpt-5")
-    temp_value = os.getenv("OPENAI_ATTACKER_TEMPERATURE", "0.4")
+    model = os.getenv("OPENAI_ATTACKER_MODEL", "gpt-5.2-2025-12-11")
+    temp_value = os.getenv("OPENAI_ATTACKER_TEMPERATURE", "0.7")
     if temp_value == "null":
         temperature = None
     else:

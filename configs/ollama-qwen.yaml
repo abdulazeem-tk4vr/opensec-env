@@ -1,0 +1,5 @@
+models:
+  - name: qwen2.5:14b
+    provider: ollama
+    temperature: 0.2
+    max_tokens: 600

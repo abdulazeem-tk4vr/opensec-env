@@ -25,6 +25,18 @@ Results are written to `outputs/` (gitignored). By default, LLM-provider runs
 use `outputs/llms/`, agent-provider runs use `outputs/agents/`, and mixed
 provider configs use `outputs/mixed/`.
 
+## Ollama Smoke Test
+
+Run a one-step local Ollama eval with Qwen:
+
+```bash
+ollama pull qwen2.5:14b
+export OLLAMA_BASE_URL=http://127.0.0.1:11434
+
+python scripts/eval.py --config configs/ollama-qwen.yaml --limit 1 \
+  --output outputs/ollama_qwen_smoke.jsonl
+```
+
 ## How It Works
 
 The attacker and defender both modify a shared world state each episode. The attacker progresses through a fixed state machine and emits evidence artifacts. The defender queries evidence and takes actions under a step budget. The oracle scores what the agent does (tool calls), not what it says.

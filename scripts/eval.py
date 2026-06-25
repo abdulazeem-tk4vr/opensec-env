@@ -46,6 +46,10 @@ def _load_yaml(path: Path) -> Dict[str, Any]:
         return yaml.safe_load(f)
 
 
+def _manifest_path(value: str) -> Path:
+    return Path(value.replace("\\", "/"))
+
+
 def _normalize_action(data: Dict[str, Any]) -> AgentAction:
     action_type = data.get("action_type") if isinstance(data, dict) else None
     if action_type not in ALLOWED_ACTIONS:
@@ -284,7 +288,7 @@ def main() -> int:
     seeds = manifest[args.split]
     if args.tier:
         seeds = [entry for entry in seeds if entry.get("tier") == args.tier]
-    seeds = [Path(entry["seed_path"]) for entry in seeds]
+    seeds = [_manifest_path(entry["seed_path"]) for entry in seeds]
     if args.skip:
         seeds = seeds[args.skip:]
     if args.limit:

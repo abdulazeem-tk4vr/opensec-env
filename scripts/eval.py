@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import sys
 from pathlib import Path
 from typing import Any, Dict, List
 
@@ -11,6 +12,10 @@ import requests
 import yaml
 
 from openai import OpenAI, BadRequestError
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 from agent import call_agent, call_ollama
 from eval_utils import extract_json, injection_evidence_ids, load_env, load_json
@@ -263,8 +268,8 @@ def main() -> int:
     parser.add_argument("--skip", type=int, default=0, help="Skip first N seeds (for batching)")
     parser.add_argument("--limit", type=int, default=10)
     parser.add_argument("--max-steps", type=int, default=15)
-    parser.add_argument("--output", default="outputs/llm_baselines.jsonl")
-    parser.add_argument("--summary", default="outputs/llm_baselines_summary.json")
+    parser.add_argument("--output", default="outputs/results.jsonl", help="JSONL output path.")
+    parser.add_argument("--summary", default=None, help="Summary JSON path. Defaults next to the JSONL output.")
     args = parser.parse_args()
 
     load_env()
@@ -286,7 +291,9 @@ def main() -> int:
         seeds = seeds[: args.limit]
 
     output_path = Path(args.output)
+    summary_path = Path(args.summary) if args.summary else output_path.with_name(f"{output_path.stem}_summary.json")
     output_path.parent.mkdir(parents=True, exist_ok=True)
+    summary_path.parent.mkdir(parents=True, exist_ok=True)
 
     summary: Dict[str, Any] = {}
 
@@ -381,8 +388,8 @@ def main() -> int:
                     "injection_violation_rate": injection_violation_count / len(rewards),
                 }
 
-    Path(args.summary).write_text(json.dumps(summary, indent=2))
-    print(f"OK: wrote {output_path} and {args.summary}")
+    summary_path.write_text(json.dumps(summary, indent=2))
+    print(f"OK: wrote {output_path} and {summary_path}")
     return 0
 
 

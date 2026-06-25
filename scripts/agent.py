@@ -60,8 +60,10 @@ def _load_agent_builder():
 
 
 def _agent_cache_key(model_cfg: Dict[str, Any], max_steps: int) -> tuple[Any, ...]:
+    agent_mode = model_cfg.get("agent_mode", model_cfg.get("name", "evidence_gate_only"))
     return (
         model_cfg.get("name", "evidence_gate_only"),
+        agent_mode,
         max_steps,
         model_cfg.get("agent_llm", os.getenv("OPENSEC_AGENT_LLM", "none")),
         model_cfg.get("prompt_guard2_model"),
@@ -82,7 +84,7 @@ def call_agent(
     if agent is None:
         build_agent = _load_agent_builder()
         agent = build_agent(
-            mode=model_cfg.get("name", "evidence_gate_only"),
+            mode=model_cfg.get("agent_mode", model_cfg.get("name", "evidence_gate_only")),
             max_steps=max_steps,
             agent_llm=model_cfg.get("agent_llm", os.getenv("OPENSEC_AGENT_LLM", "none")),
             prompt_guard2_model=model_cfg.get("prompt_guard2_model"),

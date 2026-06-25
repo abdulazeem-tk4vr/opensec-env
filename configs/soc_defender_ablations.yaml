@@ -1,0 +1,35 @@
+models:
+  - name: evidence_gate_only
+    provider: agent
+    temperature: 0.0
+    max_tokens: 600
+    agent_mode: evidence_gate_only
+    agent_llm: none
+    use_langgraph: false
+
+  - name: full_agentic_no_llm
+    provider: agent
+    temperature: 0.0
+    max_tokens: 600
+    agent_mode: full_agentic
+    agent_llm: none
+    prompt_guard2_model: null
+    use_langgraph: false
+
+  - name: full_agentic_promptguard2
+    provider: agent
+    temperature: 0.0
+    max_tokens: 600
+    agent_mode: full_agentic
+    agent_llm: none
+    prompt_guard2_model: meta-llama/Prompt-Guard-86M
+    use_langgraph: false
+
+  - name: full_agentic_langgraph
+    provider: agent
+    temperature: 0.0
+    max_tokens: 600
+    agent_mode: full_agentic
+    agent_llm: none
+    prompt_guard2_model: null
+    use_langgraph: true

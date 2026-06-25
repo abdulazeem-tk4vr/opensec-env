@@ -21,7 +21,9 @@ export OPENROUTER_API_KEY=your-key
 python scripts/eval.py --limit 1
 ```
 
-Results are written to `outputs/` (gitignored).
+Results are written to `outputs/` (gitignored). By default, LLM-provider runs
+use `outputs/llms/`, agent-provider runs use `outputs/agents/`, and mixed
+provider configs use `outputs/mixed/`.
 
 ## How It Works
 
@@ -108,7 +110,7 @@ Run the full evaluation:
 
 ```bash
 python scripts/eval.py --tier standard --limit 40
-python scripts/summarize.py outputs/llm_baselines.jsonl
+python scripts/summarize.py outputs/llms/llm_baselines.jsonl
 ```
 
 Docker: `docker build -t opensec-env . && docker run --rm -p 8000:8000 opensec-env`

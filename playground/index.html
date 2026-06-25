@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OpenSec Trace Playground</title>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -438,7 +439,7 @@
       <input type="file" id="file-input" accept=".jsonl">
       <button class="btn" onclick="document.getElementById('file-input').click()">Load File</button>
       <div class="watch-controls">
-        <input type="text" id="watch-path" class="watch-input" placeholder="../outputs/llm_baselines.jsonl" value="../outputs/llm_baselines.jsonl">
+        <input type="text" id="watch-path" class="watch-input" placeholder="../outputs/ollama_eval.jsonl" value="../outputs/ollama_eval.jsonl">
         <button class="btn btn-watch" id="watch-btn" onclick="toggleWatch()">Watch</button>
       </div>
       <select class="btn" id="sort-select">
@@ -511,10 +512,21 @@
 
     const state = {
       traces: [],
-      selectedEpisode: null,
+      selectedScenarioId: null,
       sortBy: 'reward',
       sortDir: 'desc'
     };
+
+    function getSelectedTrace() {
+      if (!state.selectedScenarioId) return null;
+      return state.traces.find(t => t.scenario_id === state.selectedScenarioId) || null;
+    }
+
+    function selectEpisode(scenarioId) {
+      state.selectedScenarioId = scenarioId;
+      renderTimeline();
+      renderEpisodeList();
+    }
 
     function parseJSONL(text) {
       return text.trim().split('\n').filter(Boolean).map(line => {
@@ -523,9 +535,18 @@
       }).filter(Boolean);
     }
 
-    function loadTraces(text) {
+    function loadTraces(text, { preserveSelection = true } = {}) {
+      const previousId = preserveSelection ? state.selectedScenarioId : null;
       state.traces = parseJSONL(text);
-      state.selectedEpisode = null;
+
+      if (previousId && state.traces.some(t => t.scenario_id === previousId)) {
+        state.selectedScenarioId = previousId;
+      } else if (!state.selectedScenarioId && state.traces.length === 1) {
+        state.selectedScenarioId = state.traces[0].scenario_id;
+      } else if (state.selectedScenarioId && !state.traces.some(t => t.scenario_id === state.selectedScenarioId)) {
+        state.selectedScenarioId = null;
+      }
+
       renderEpisodeList();
       renderTimeline();
       document.getElementById('episode-count').textContent = state.traces.length;
@@ -582,12 +603,12 @@
         return state.sortDir === 'desc' ? bVal - aVal : aVal - bVal;
       });
 
-      list.innerHTML = sorted.map((trace, i) => {
-        const isSelected = state.selectedEpisode === trace;
+      list.innerHTML = sorted.map(trace => {
+        const isSelected = trace.scenario_id === state.selectedScenarioId;
         const correct = trace.containment_correct_total || 0;
         const fp = trace.containment_false_positive_total || 0;
         return `
-          <div class="episode-item ${isSelected ? 'selected' : ''}" data-index="${state.traces.indexOf(trace)}">
+          <div class="episode-item ${isSelected ? 'selected' : ''}" data-scenario-id="${trace.scenario_id || ''}">
             <span class="episode-id">${trace.scenario_id || 'Unknown'}</span>
             <div class="episode-stats">
               <span class="stat-correct">${correct} correct</span>
@@ -599,11 +620,10 @@
       }).join('');
 
       list.querySelectorAll('.episode-item').forEach(item => {
-        item.addEventListener('click', () => {
-          const idx = parseInt(item.dataset.index);
-          state.selectedEpisode = state.traces[idx];
-          renderEpisodeList();
-          renderTimeline();
+        item.addEventListener('click', (e) => {
+          e.preventDefault();
+          const scenarioId = item.getAttribute('data-scenario-id');
+          if (scenarioId) selectEpisode(scenarioId);
         });
       });
     }
@@ -614,27 +634,35 @@
       const breakdown = document.getElementById('score-breakdown');
       const empty = document.getElementById('empty-state');
 
-      if (!state.selectedEpisode) {
+      const selected = getSelectedTrace();
+
+      if (!selected) {
         header.style.display = 'none';
         breakdown.style.display = 'none';
-        if (state.traces.length === 0) {
+        timeline.innerHTML = '';
+        if (empty) {
           empty.style.display = 'flex';
-          timeline.innerHTML = '';
+          empty.querySelector('h3').textContent = state.traces.length === 0
+            ? 'Load trace data to begin'
+            : 'Select an episode';
+          empty.querySelector('p').textContent = state.traces.length === 0
+            ? 'Drag and drop a JSONL file containing evaluation traces, or click "Load File" to browse.'
+            : 'Click an episode from the list to view its timeline.';
+          if (empty.querySelector('.drop-zone')) {
+            empty.querySelector('.drop-zone').style.display = state.traces.length === 0 ? 'block' : 'none';
+          }
           timeline.appendChild(empty);
-        } else {
-          empty.style.display = 'flex';
-          empty.querySelector('h3').textContent = 'Select an episode';
-          empty.querySelector('p').textContent = 'Click an episode from the list to view its timeline.';
-          empty.querySelector('.drop-zone').style.display = 'none';
         }
         return;
       }
 
-      empty.style.display = 'none';
+      if (empty) {
+        empty.style.display = 'none';
+      }
       header.style.display = 'block';
       breakdown.style.display = 'block';
 
-      const ep = state.selectedEpisode;
+      const ep = selected;
       const ttfc = calculateTTFC(ep.steps || []);
 
       document.getElementById('selected-scenario').textContent = ep.scenario_id || '-';
@@ -698,7 +726,7 @@
     }
 
     function renderScoreBreakdown() {
-      const ep = state.selectedEpisode;
+      const ep = getSelectedTrace();
       if (!ep) return;
 
       const attr = ep.details?.attribution || {};
@@ -822,20 +850,8 @@
         // Only update if file has grown
         if (newSize > lastFileSize) {
           lastFileSize = newSize;
-          const previousSelected = state.selectedEpisode?.scenario_id;
+          loadTraces(text, { preserveSelection: true });
 
-          loadTraces(text);
-
-          // Restore selection if it still exists
-          if (previousSelected) {
-            const found = state.traces.find(t => t.scenario_id === previousSelected);
-            if (found) {
-              state.selectedEpisode = found;
-              renderTimeline();
-            }
-          }
-
-          // Show notification if new traces arrived
           const newCount = state.traces.length;
           if (newCount > lastTraceCount) {
             console.log(`Watch: ${newCount - lastTraceCount} new trace(s) loaded`);

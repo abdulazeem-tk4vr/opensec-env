@@ -1,4 +1,4 @@
-.PHONY: install install-dev install-training test test-all lint server docker-server docker-training train-dry-run train train-curriculum baseline-eval clean
+.PHONY: install install-dev install-training test test-all lint server docker-server docker-training train-dry-run train train-curriculum baseline-eval ollama-eval clean
 
 install:
 	pip install -e .
@@ -41,6 +41,9 @@ train-curriculum:
 
 baseline-eval:
 	python scripts/eval.py --limit 1
+
+ollama-eval:
+	python scripts/eval.py --ollama --limit 1
 
 clean:
 	rm -rf outputs/gdpo outputs/rl data/sqlite/*.db

@@ -1,0 +1,7 @@
+# Optional YAML config when not using --ollama.
+# Prefer .env + `python scripts/eval.py --ollama` (see docs/deployment/runpod-ollama.md).
+models:
+  - name: llama3.2:3b
+    provider: ollama
+    temperature: 0.2
+    max_tokens: 600

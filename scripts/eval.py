@@ -12,6 +12,7 @@ import yaml
 
 from openai import OpenAI, BadRequestError
 
+from agent import call_agent, call_ollama
 from eval_utils import extract_json, injection_evidence_ids, load_env, load_json
 from oracle.calibration import (
     EvidenceExtraction,
@@ -111,6 +112,10 @@ def _invoke_model(model_cfg: Dict[str, Any], messages: List[Dict[str, str]]) -> 
         text = _call_openai(model_cfg["name"], messages, temperature, max_tokens)
     elif provider == "openrouter":
         text = _call_openrouter(model_cfg["name"], messages, temperature, max_tokens)
+    elif provider == "ollama":
+        text = call_ollama(model_cfg["name"], messages, temperature, max_tokens)
+    elif provider == "agent":
+        text = call_agent(model_cfg, messages, temperature, max_tokens)
     else:
         raise ValueError(f"Unknown provider: {provider}")
 

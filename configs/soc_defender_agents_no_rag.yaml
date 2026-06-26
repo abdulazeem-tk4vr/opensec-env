@@ -1,0 +1,9 @@
+models:
+  - name: full_agentic_qwen
+    provider: agent
+    temperature: 0.0
+    max_tokens: 600
+    agent_mode: full_agentic
+    agent_llm: ollama
+    prompt_guard2_model: null
+    use_langgraph: false

@@ -55,8 +55,9 @@ def _load_agent_builder():
     if root not in sys.path:
         sys.path.insert(0, root)
     from defender import build_agent
+    from defender.rag import build_rag_intel
 
-    return build_agent
+    return build_agent, build_rag_intel
 
 
 def _agent_cache_key(model_cfg: Dict[str, Any], max_steps: int) -> tuple[Any, ...]:
@@ -68,6 +69,8 @@ def _agent_cache_key(model_cfg: Dict[str, Any], max_steps: int) -> tuple[Any, ..
         model_cfg.get("agent_llm", os.getenv("OPENSEC_AGENT_LLM", "none")),
         model_cfg.get("prompt_guard2_model"),
         bool(model_cfg.get("use_langgraph", False)),
+        model_cfg.get("rag_path") or os.getenv("SOC_DEFENDER_RAG_PATH", ""),
+        model_cfg.get("rag_device") or os.getenv("SOC_DEFENDER_RAG_DEVICE", ""),
     )
 
 
@@ -82,11 +85,15 @@ def call_agent(
     cache_key = _agent_cache_key(model_cfg, max_steps)
     agent = _AGENT_CACHE.get(cache_key)
     if agent is None:
-        build_agent = _load_agent_builder()
+        build_agent, build_rag_intel = _load_agent_builder()
+        rag_path = model_cfg.get("rag_path") or os.getenv("SOC_DEFENDER_RAG_PATH", "")
+        rag_device = model_cfg.get("rag_device") or os.getenv("SOC_DEFENDER_RAG_DEVICE", "")
+        rag = build_rag_intel(rag_path, device=rag_device or None) if rag_path else None
         agent = build_agent(
             mode=model_cfg.get("agent_mode", model_cfg.get("name", "evidence_gate_only")),
             max_steps=max_steps,
             agent_llm=model_cfg.get("agent_llm", os.getenv("OPENSEC_AGENT_LLM", "none")),
+            rag=rag,
             prompt_guard2_model=model_cfg.get("prompt_guard2_model"),
             use_langgraph=bool(model_cfg.get("use_langgraph", False)),
         )

@@ -7,3 +7,5 @@ models:
     agent_llm: ollama
     prompt_guard2_model: null
     use_langgraph: false
+    rag_path: /workspace/soc_defender/data/rag/qdrant
+    rag_device: cuda

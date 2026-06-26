@@ -5,6 +5,7 @@ import argparse
 import json
 import os
 import sys
+import time
 from pathlib import Path
 from typing import Any, Dict, List
 
@@ -111,6 +112,32 @@ def _call_openrouter(model: str, messages: List[Dict[str, str]], temperature: fl
     return data["choices"][0]["message"]["content"]
 
 
+def _append_llm_log(
+    model_cfg: Dict[str, Any],
+    messages: List[Dict[str, str]],
+    raw_text: str,
+    parsed: Dict[str, Any] | None,
+    error: str | None = None,
+) -> None:
+    path = os.getenv("OPENSEC_LLM_LOG")
+    if not path:
+        return
+    record = {
+        "ts": time.time(),
+        "source": "opensec_eval",
+        "provider": model_cfg.get("provider"),
+        "model": model_cfg.get("name"),
+        "raw_text": raw_text,
+        "parsed": parsed,
+        "error": error,
+        "messages": messages,
+    }
+    log_path = Path(path)
+    log_path.parent.mkdir(parents=True, exist_ok=True)
+    with log_path.open("a", encoding="utf-8") as f:
+        f.write(json.dumps(record, ensure_ascii=False, sort_keys=True) + "\n")
+
+
 def _invoke_model(model_cfg: Dict[str, Any], messages: List[Dict[str, str]]) -> tuple[str, Dict[str, Any]]:
 
     provider = model_cfg["provider"]
@@ -129,9 +156,15 @@ def _invoke_model(model_cfg: Dict[str, Any], messages: List[Dict[str, str]]) -> 
         raise ValueError(f"Unknown provider: {provider}")
 
     try:
-        return text, extract_json(text)
-    except Exception:
-        return text, {"action_type": "query_logs", "params": {"sql": "SELECT 1"}}
+        parsed = extract_json(text)
+        if provider != "agent":
+            _append_llm_log(model_cfg, messages, text, parsed)
+        return text, parsed
+    except Exception as exc:
+        fallback = {"action_type": "query_logs", "params": {"sql": "SELECT 1"}}
+        if provider != "agent":
+            _append_llm_log(model_cfg, messages, text, fallback, error=str(exc))
+        return text, fallback
 
 
 def _default_report() -> Dict[str, Any]:
@@ -274,9 +307,19 @@ def main() -> int:
     parser.add_argument("--max-steps", type=int, default=15)
     parser.add_argument("--output", default="outputs/results.jsonl", help="JSONL output path.")
     parser.add_argument("--summary", default=None, help="Summary JSON path. Defaults next to the JSONL output.")
+    parser.add_argument("--llm-log", default="", help="Optional JSONL path for raw LLM/provider responses and parsed actions. Agent graph traces are written to a sibling *_agent_trace.jsonl file.")
     args = parser.parse_args()
 
     load_env()
+    if args.llm_log:
+        llm_log_path = Path(args.llm_log)
+        if not llm_log_path.is_absolute():
+            llm_log_path = ROOT / llm_log_path
+        llm_log_path.parent.mkdir(parents=True, exist_ok=True)
+        os.environ["OPENSEC_LLM_LOG"] = str(llm_log_path)
+        os.environ["SOC_DEFENDER_LLM_LOG"] = str(llm_log_path)
+        trace_log_path = llm_log_path.with_name(f"{llm_log_path.stem}_agent_trace.jsonl")
+        os.environ["SOC_DEFENDER_TRACE_LOG"] = str(trace_log_path)
 
     config = _load_yaml(Path(args.config))
     model_list = config.get("models", [])

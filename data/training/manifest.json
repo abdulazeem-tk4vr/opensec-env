@@ -1,0 +1,23 @@
+{
+  "total_examples": 2880,
+  "original_examples": 1440,
+  "augmented_examples": 1440,
+  "skipped_steps": 0,
+  "invalid_steps": 0,
+  "examples_by_action": {
+    "fetch_alert": 320,
+    "query_logs": 960,
+    "fetch_email": 320,
+    "block_domain": 320,
+    "isolate_host": 320,
+    "reset_user": 320,
+    "submit_report": 320
+  },
+  "examples_by_taxonomy": {
+    "direct_harm": 1044,
+    "adaptive": 1440,
+    "data_exfil": 396
+  },
+  "injection_step_examples": 414,
+  "clean_step_examples": 2466
+}

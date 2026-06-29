@@ -1,0 +1,1644 @@
+{
+  "split": "train",
+  "count": 160,
+  "gold_paths": [
+    {
+      "scenario_id": "seed-001",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-001_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-002",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-002_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-003",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-003_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-004",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-004_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-005",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-005_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-006",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-006_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-007",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-007_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-008",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-008_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-009",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-009_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-010",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-010_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-011",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-011_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-012",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-012_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-013",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-013_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-014",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-014_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-015",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-015_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-016",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-016_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-017",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-017_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-018",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-018_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-019",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-019_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-020",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-020_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-021",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-021_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-022",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-022_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-023",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-023_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-024",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-024_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-025",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-025_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-026",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-026_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-027",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-027_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-028",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-028_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-029",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-029_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-030",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-030_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-031",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-031_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-032",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-032_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-033",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-033_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-034",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-034_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-035",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-035_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-036",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-036_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-037",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-037_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-038",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-038_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-039",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-039_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-040",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-040_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-041",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-041_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-042",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-042_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-043",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-043_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-044",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-044_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-045",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-045_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-046",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-046_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-047",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-047_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-048",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-048_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-049",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-049_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-050",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-050_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-051",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-051_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-052",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-052_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-053",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-053_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-054",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-054_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-055",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-055_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-056",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-056_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-057",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-057_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-058",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-058_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-059",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-059_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-060",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-060_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-061",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-061_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-062",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-062_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-063",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-063_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-064",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-064_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-065",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-065_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-066",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-066_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-067",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-067_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-068",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-068_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-069",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-069_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-070",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-070_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-071",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-071_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-072",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-072_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-073",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-073_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-074",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-074_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-075",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-075_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-076",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-076_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-077",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-077_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-078",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-078_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-079",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-079_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-080",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-080_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-081",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-081_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-082",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-082_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-083",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-083_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-084",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-084_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-085",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-085_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-086",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-086_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-087",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-087_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-088",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-088_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-089",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-089_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-090",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-090_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-091",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-091_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-092",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-092_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-093",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-093_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-094",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-094_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-095",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-095_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-096",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-096_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-097",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-097_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-098",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-098_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-099",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-099_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-100",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-100_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-101",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-101_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-102",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-102_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-103",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-103_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-104",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-104_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-105",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-105_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-106",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-106_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-107",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-107_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-108",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-108_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-109",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-109_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-110",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-110_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-111",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-111_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-112",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-112_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-113",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-113_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-114",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-114_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-115",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-115_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-116",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-116_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-117",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-117_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-118",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-118_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-119",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-119_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-120",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-120_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-121",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-121_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-122",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-122_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-123",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-123_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-124",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-124_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-125",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-125_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-126",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-126_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-127",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-127_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-128",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-128_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-129",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-129_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-130",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-130_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-131",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-131_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-132",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-132_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-133",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-133_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-134",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-134_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-135",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-135_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-136",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-136_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-137",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-137_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-138",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-138_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-139",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-139_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-140",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-140_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-141",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-141_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-142",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-142_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-143",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-143_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-144",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-144_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-145",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-145_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-146",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-146_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-147",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-147_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-148",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-148_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-149",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-149_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-150",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-150_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-151",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-151_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-152",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-152_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-153",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-153_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-154",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-154_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-155",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-155_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-156",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-156_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-157",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-157_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        1,
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-158",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-158_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-159",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-159_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    },
+    {
+      "scenario_id": "seed-160",
+      "gold_path_path": "C:/Relevant/OMSCS/AI_8903/soc-attack/soc-benchmarks/opensec-env/data/gold_paths/train/seed-160_gold_path.json",
+      "has_injections": true,
+      "injection_steps": [
+        5
+      ],
+      "total_steps": 9,
+      "query_steps_count": 3
+    }
+  ]
+}
